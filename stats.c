@@ -1,6 +1,6 @@
 #include "stats.h"
 
-static float compute_avgerage_f();
+static float compute_avgerage_f(const float* numberset, int setlength);
 
 struct Stats compute_statistics(const float* numberset, int setlength) {
     
@@ -23,12 +23,12 @@ static float compute_avgerage_f(const float* numberset, int setlength)
    /*calculating sum*/
   for (count=0 ;count<setlength;count++)  
   {
-      sum += sum+ numberset[count]
+      sum +=numberset[count];
   }
   /*calculating avg*/  
   avg = (sum/setlength);
     
-   reurn avg; 
+   return avg; 
 }
 
 //Test code to check test case 
