@@ -1,20 +1,14 @@
 #include "stats.h"
 
-typedef struct Stats 
-{
- int average;
- int min;
- int max;
-};
-
-
 struct Stats compute_statistics(const float* numberset, int setlength) {
     Stats s;
-    s.average = 0;
-    s.min = 0;
+    
+    s.average = setlength;
+    s.min = numberset[3];
     s.max = 0;
+    retrun s;
 }
 
 //Test code to check test case 
-int emailAlertCallCount = 1;
-int ledAlertCallCount = 1;
+int emailAlertCallCount = 0;
+int ledAlertCallCount = 0;
