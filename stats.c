@@ -6,7 +6,7 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     s.average = setlength;
     s.min = numberset[3];
     s.max = 0;
-    retrun s;
+    return s;
 }
 
 //Test code to check test case 
