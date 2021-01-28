@@ -5,7 +5,7 @@ typedef struct Stats
  int average;
  int min;
  int max;
-}
+};
 
 
 struct Stats compute_statistics(const float* numberset, int setlength) {
