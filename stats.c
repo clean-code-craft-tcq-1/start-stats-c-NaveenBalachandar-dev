@@ -137,8 +137,11 @@ static float compute_MaxNum_f(const float* numberset, int setlength)
 *//*------------------------------------------------------------------------*/
 void check_and_alert(float maxThreshold_f, alerter_funcptr alerters[], struct Stats computedStats_s) {
     
+    
+    /*Check maimum number exceeds threshold*/
     if(computedStats_s.max > maxThreshold_f)
     { 
+            /*email and LED alert*/      
             alerters[0]();
             alerters[1]();
     }
