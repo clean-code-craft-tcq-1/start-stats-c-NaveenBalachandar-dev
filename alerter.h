@@ -17,3 +17,8 @@
 void emailAlerter_v();
 void ledAlerter_v();
 
+/*=============================================================================
+=======                      COMMON VARIABLES                           =======
+=============================================================================*/
+extern int emailAlertCallCount;
+extern int ledAlertCallCount;
