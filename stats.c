@@ -12,7 +12,13 @@
 #include "stats.h"
 
 /*=============================================================================
-=======                       Local Functions                       =======
+=======                            Variables                            =======
+=============================================================================*/
+int emailAlertCallCount = 0;
+int ledAlertCallCount = 0;
+
+/*=============================================================================
+=======                       Local Functions                           =======
 =============================================================================*/
 static float compute_avgerage_f(const float* numberset, int setlength);
 static float compute_MinNum_f(const float* numberset, int setlength);
@@ -117,6 +123,24 @@ static float compute_MaxNum_f(const float* numberset, int setlength)
   }
    return Maxnum; 
 }
-//Test code to check test case 
-int emailAlertCallCount = 0;
-int ledAlertCallCount = 0;
+
+/*---------------------------------------------------------------------------*/
+/*     FUNCTION:    check_and_alert
+*/
+/*!    \brief       Raises alerts when max is greater than threshold
+*
+*
+*     \param       maxThreshold_f          - Maximum allowed threshold value
+*     \param       alerter_funcptr         - Function pointer for alert functions
+*     \param       computedStats_s         - Statistic result values
+*     \returns     void
+*//*------------------------------------------------------------------------*/
+void check_and_alert(float maxThreshold_f, alerter_funcptr alerters[], struct Stats computedStats_s) {
+    
+    if(computedStats_s.max > maxThreshold_f)
+    { 
+            alerters[0]();
+            alerters[1]();
+    }
+}
+
