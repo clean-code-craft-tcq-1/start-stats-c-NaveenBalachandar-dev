@@ -1,8 +1,8 @@
 /******************************************************************************/
-/***    \file        stats.h
+/***    \file        alerter.h
 ***     \author  Naveen Balachandar                 
 ***
-***     \brief       Header for stats.h
+***     \brief       Header file for alerter.h
 ***/       
 /*****************************************************************************/
 
@@ -12,20 +12,13 @@
 #include <stdlib.h>
 
 /*=============================================================================
-=======                       TYPES                       =======
+=======                       FUNCTIONS                            =======
 =============================================================================*/
-
-/*structure for computing statistics */
-struct Stats 
-{
- float average; 
- float min;
- float max;
-};
+void emailAlerter_v();
+void ledAlerter_v();
 
 /*=============================================================================
-=======                      COMMON FUNCTIONS                            =======
+=======                      COMMON VARIABLES                           =======
 =============================================================================*/
-struct Stats compute_statistics(const float* numberset, int setlength);
-typedef void (*alerter_funcptr)();
-void check_and_alert(float maxThreshold, alerter_funcptr alerters[], struct Stats computedStats);
+extern int emailAlertCallCount;
+extern int ledAlertCallCount;
