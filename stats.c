@@ -1,22 +1,56 @@
+/******************************************************************************/
+/***    \file        stats.c
+***     \author  Naveen Balachandar                 
+***
+***     \brief       Application file for compute statistics
+***/       
+/*****************************************************************************/
+
+/*=============================================================================
+=======                            INCLUDES                             =======
+=============================================================================*/
 #include "stats.h"
 
+/*=============================================================================
+=======                       Local Functions                       =======
+=============================================================================*/
 static float compute_avgerage_f(const float* numberset, int setlength);
 static float compute_MinNum_f(const float* numberset, int setlength);
 static float compute_MaxNum_f(const float* numberset, int setlength);
 
+
+/*---------------------------------------------------------------------------*/
+/*     FUNCTION:    compute_statistics
+ */
+/*!    \brief       compute statistics like average ,Minimum and maximum
+ *
+ *     \param       numberset,setlength
+ *     \returns     structure statisics refrence
+ *
+*//*------------------------------------------------------------------------*/
 struct Stats compute_statistics(const float* numberset, int setlength) {
     
     Stats s; /*Instance to structure*/
     
     /*computing average*/
     s.average = compute_avgerage_f(numberset ,setlength);
-   /*computing average*/
+   /*computing  Minimum number in array*/
     s.min = compute_MinNum_f(numberset ,setlength); 
-    /*computing average*/
+   /*computing  maximum number in array*/
     s.max = compute_MaxNum_f(numberset ,setlength);
+    
     return s;
 }
 
+/*---------------------------------------------------------------------------*/
+/*     FUNCTION:    compute_avgerage_f
+ */
+/*!    \brief       compute statistics - average ,
+ *
+ *     \param       numberset,setlength
+ *     \returns     average result
+ *
+*//*------------------------------------------------------------------------*/
 static float compute_avgerage_f(const float* numberset, int setlength)
 {
   float sum =0.0;  
@@ -34,6 +68,15 @@ static float compute_avgerage_f(const float* numberset, int setlength)
    return avg; 
 }
 
+/*---------------------------------------------------------------------------*/
+/*     FUNCTION:    compute_MinNum_f
+ */
+/*!    \brief       compute statistics - Minnumber ,
+ *
+ *     \param       numberset,setlength
+ *     \returns     minnumber result
+ *
+*//*------------------------------------------------------------------------*/
 static float compute_MinNum_f(const float* numberset, int setlength)
 {
   static float minNum = numberset[0];  
@@ -47,12 +90,18 @@ static float compute_MinNum_f(const float* numberset, int setlength)
          minNum = numberset[count];
       }
   }
-
-    /*calculating avg*/  
-    
    return minNum; 
 }
 
+/*---------------------------------------------------------------------------*/
+/*     FUNCTION:    compute_MaxNum_f
+ */
+/*!    \brief       compute statistics - Maximum number ,
+ *
+ *     \param       numberset,setlength
+ *     \returns     Maximum number result
+ *
+*//*------------------------------------------------------------------------*/
 static float compute_MaxNum_f(const float* numberset, int setlength)
 {
   static float Maxnum = numberset[0];  
@@ -66,9 +115,6 @@ static float compute_MaxNum_f(const float* numberset, int setlength)
          Maxnum = numberset[count];
       }
   }
-
-    /*calculating avg*/  
-    
    return Maxnum; 
 }
 //Test code to check test case 
